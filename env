@@ -1,0 +1,4 @@
+流程
+1.启动chromedriver,在线状态
+2.python客户端，与chromedriver建立连接
+3.客户端发送各种指令：打开浏览器，访问页面等
