@@ -17,15 +17,15 @@ import time
 
 driver = webdriver.Chrome()
 driver.get("http://www.baidu.com")
+driver.implicitly_wait(20)
 driver.maximize_window()
-driver.find_element_by_id('kw').send_keys("柠檬班", Keys.ENTER)
-loc = (By.XPATH, '//a[text()="班的微博_微博"]')
-WebDriverWait(driver, 20).until(EC.invisibility_of_element_located(loc))
-element = driver.find_element(*loc)
+driver.find_element_by_id('kw').send_keys("伦敦", Keys.ENTER)
+loc = (By.XPATH, '//a[text()="房地产】33万购"]')
+WebDriverWait(driver, 20).until(EC.visibility_of_element_located(loc))
+driver.find_element(*loc).click()
 # 通过js语句将元素滚动到可视区域以后，再去点击
 # 执行jS语句的函数   argument--列表
-driver.execute_script("argument[0].scrollIntoView();", element)
-element.click()
-time.sleep(10)
-driver.quit()
-
+# driver.execute_script("arguments[0].scrollIntoView();", element)
+# element.click()
+# time.sleep(10)
+# driver.quit()
