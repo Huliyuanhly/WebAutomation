@@ -5,14 +5,14 @@
 """
 import unittest
 from selenium import webdriver
-from ActualExecise3.PageObjects.login_page import LoginPage
-from ActualExecise3.PageObjects.home_page import HomePage
-from ActualExecise3.PageObjects.bid_page import BidPage
-from ActualExecise3.PageObjects.my_account_page import MyAccountPage
+from ActualExecise5.PageObjects.login_page import LoginPage
+from ActualExecise5.PageObjects.home_page import HomePage
+from ActualExecise5.PageObjects.bid_page import BidPage
+from ActualExecise5.PageObjects.my_account_page import MyAccountPage
 import time
 import ddt
-from ActualExecise3.TestDatas import Common_datas as CD
-from ActualExecise3.TestDatas import login_datas as LD
+from ActualExecise5.TestDatas import Common_datas as CD
+from ActualExecise5.TestDatas import login_datas as LD
 
 
 class TestInvest(unittest.TestCase):

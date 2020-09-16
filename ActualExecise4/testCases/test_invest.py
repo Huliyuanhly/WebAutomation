@@ -5,10 +5,10 @@
 """
 import unittest
 from selenium import webdriver
-from ActualExecise3.PageObjects.login_page import LoginPage
-from ActualExecise3.PageObjects.home_page import HomePage
-from ActualExecise3.PageObjects.bid_page import BidPage
-from ActualExecise3.PageObjects.my_account_page import MyAccountPage
+from ActualExecise4.PageObjects.login_page import LoginPage
+from ActualExecise4.PageObjects.home_page import HomePage
+from ActualExecise4.PageObjects.bid_page import BidPage
+from ActualExecise4.PageObjects.my_account_page import MyAccountPage
 import time
 import ddt
 from ActualExecise3.TestDatas import Common_datas as CD
