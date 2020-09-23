@@ -6,6 +6,7 @@ import datetime
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from ActualExecise6.Common.dir_config import pageshots_dir
 
 
 class BasePage:
@@ -32,7 +33,8 @@ class BasePage:
     def _save_page_shot(self, img_doc):
         # 截图 命名要见名知意 一看名称就知道在哪个失败截的图
         # img_doc 格式：页面名称_行为名称_年月日时分秒.png
-        file_path = "{}_{}.png".format(img_doc, "")
+        now = time.strftime("%Y-%m-%d %H-%M-%S")
+        file_path = pageshots_dir + "{}_{}.png".format(img_doc, now)
         logging.info("截图保存在：{}".format(file_path))
         try:
             self.driver.save_screenshot(file_path)  # 文件格式名称不要有  ： 空格

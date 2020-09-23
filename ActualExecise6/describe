@@ -1,0 +1,39 @@
+pytest替换unittest
+unittest可以干什么？ 断言 /组合用例 /用例前置后置 /数据驱动 /运行用例 /套件上 /生成报告 /收集用例
+应用场景：单元测试 开发自测 自动化用例
+pytest与unittest的区别
+                  UNITTEST                                              PYTEST
+1.表达用例的方式  继承unittest.TestCase                                    函数、类
+2.断言方式     self.assertXXXX                                    assert 表达式(True False)
+3.前置后置
+     unittest前置后置
+       1).setUp/tearDown-class
+       2).固定的函数名称，夹用例、类        前置后置都在一个类中间
+       3)如果前置要使用变量名，self.XXX将他变为测试用例的属性
+     pytest的前置后置：fixture
+       1）没有固定的函数名称，自定义----怎么知道是前置还是后置？ ----标注函数 在函数名称前 @pytest.fixture
+       2）前置后置不分开---------怎么知道是前置还是后置？----------前置 yield 后置
+       3）如何确定它夹的是什么（作用域）------@pytest.fixture（scope="function"） function/class/moudle(py文件)/session(项目)
+       4）不会和测试类绑定在一起
+       5）使用方式：哪个测试类/函数需要用到，自己去调用  调用方式：测试类，函数前面 @pytest.mark.usefixtures("")
+       ------------------------调用----------------------------------------------------------
+       6）测试用例要使用前置当中的变量：
+            1.定义fixture的时候要返回变量，yield 返回值
+            2.调用时，将返回值
+       7）pytest中，测试用例的参数有2种
+            1.fixture的返回值
+            2.ddt的参数
+       8）共享机制：conftest.py文件-----------放所有需要共享的前置后置
+            1.注意：文件名称固定
+            2.不需要引入，用例会自动搜索，搜索自己-->所在目录的层级  (我觉得放在testCase目录下比较好)
+            3.支持层级化
+
+4.收集用例    TestLoader/TestSuite                                自动识别用例 识别规则
+                                                                    1）目录 - py文件在哪个文件夹下就是那个目录下面开始搜索用例
+                                                                    2）文件 - 以test_开头的，或者以_test结尾的
+                                                                    3）函数 - test_开头的或者类名以Test开头下的test_方法
+5.运行    unittest.main()                                           pytest.main()
+                                                                    丰富的插件
+
+
+
